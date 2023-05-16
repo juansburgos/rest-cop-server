@@ -10,18 +10,20 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/products")
 public class ProductController {
     @Autowired
     private ProductService productService;
-    @PostMapping("/products")
+    @PostMapping
     public Product saveProduct(@RequestBody Product product) {
         return productService.saveProduct(product);
     }
-    @GetMapping("/products")
+
+    @GetMapping
     public List<Product> getProducts() {
         return productService.getProducts();
     }
-    @GetMapping("/products")
+    @GetMapping(params="productId")
     public Product getProduct(@RequestParam Long productId) {
         Optional<Product> product = productService.getProductById(productId);
         return product.orElse(null);

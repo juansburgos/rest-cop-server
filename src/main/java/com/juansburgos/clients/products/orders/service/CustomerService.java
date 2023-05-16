@@ -15,4 +15,6 @@ public interface CustomerService {
     List<Customer> getCustomersByNameContaining(String customerName);
 
     Customer getCustomerByEmail(String email);
+
+    void deleteCustomerById(Long customerId);
 }
